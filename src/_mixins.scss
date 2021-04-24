@@ -1,0 +1,11 @@
+@function calc-em($value, $base: 16px) {
+	$emSize: $value / $base;
+
+	@return #{$emSize}em;
+}
+
+@function calc-rem($value) {
+	$remSize: $value / 16px;
+
+	@return #{$remSize}rem;
+}
