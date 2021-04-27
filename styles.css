@@ -10,7 +10,8 @@
   --white: hsla(0, 0%, 100%, 1);
   --black: hsla(0, 0%, 0%, 1);
   --gray1: hsla(0, 0%, 98%, 1);
-  --gray2: hsla(0, 0%, 66%, 1); }
+  --gray2: hsla(0, 0%, 66%, 1);
+  --animationCard: .6s ease-in-out; }
 
 * {
   -webkit-box-sizing: border-box;
@@ -72,7 +73,8 @@ body {
   flex: 1; }
 
 .image-container {
-  padding-right: 1.125em; }
+  margin-right: 1.125em;
+  overflow: hidden; }
   .image-container > img {
     display: block;
     width: 100%;
@@ -93,6 +95,22 @@ body {
     .section-team > *:nth-child(even) {
       margin-top: 3.125em;
       margin-left: 10px; }
+  .section-team:hover img {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    -webkit-transition: allvar(--animationCard);
+    -o-transition: allvar(--animationCard);
+    transition: allvar(--animationCard); }
+  .section-team:hover .card-member:hover img, .section-team:hover .card-member:focus img, .section-team:hover .card-member:active img {
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+    -webkit-transition: var(--animationCard);
+    -o-transition: var(--animationCard);
+    transition: var(--animationCard); }
+    @media (prefers-reduced-motion: reduce) {
+      .section-team:hover .card-member:hover img, .section-team:hover .card-member:focus img, .section-team:hover .card-member:active img {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%); } }
 
 .card-member {
   position: relative; }
@@ -102,6 +120,22 @@ body {
 .card a {
   color: var(--black);
   text-decoration: none; }
+  .card a img {
+    -webkit-transition: var(--animationCard);
+    -o-transition: var(--animationCard);
+    transition: var(--animationCard); }
+  .card a:hover img, .card a:focus img, .card a:active img {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    -webkit-transition: var(--animationCard);
+    -o-transition: var(--animationCard);
+    transition: var(--animationCard); }
+    @media (prefers-reduced-motion: reduce) {
+      .card a:hover img, .card a:focus img, .card a:active img {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1); } }
 
 .card-name {
   margin: 0.71429em 0 0 0;

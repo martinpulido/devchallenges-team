@@ -11,6 +11,8 @@ $mqDesktop: 1440px;
     --black: hsla(0, 0%, 0%, 1);
     --gray1: hsla(0, 0%, 98%, 1);
     --gray2: hsla(0, 0%, 66%, 1);
+
+    --animationCard: .6s ease-in-out;
 }
 
 * { box-sizing: border-box; }
@@ -73,7 +75,9 @@ body {
 }   
     
     .image-container {
-        padding-right: calc-em(18px);
+        margin-right: calc-em(18px);
+
+        overflow: hidden;
 
         > img {
             display: block;
@@ -103,6 +107,31 @@ body {
                 }
             }
 
+            &:hover {
+                img {
+                    filter: grayscale(100%);
+                    transition: all + var(--animationCard);
+
+                    
+                }
+                
+                .card-member {
+                    &:hover, &:focus, &:active {
+                        
+                        img {
+
+                            filter: grayscale(0%);
+                            transition: var(--animationCard);
+                            
+                            @media (prefers-reduced-motion: reduce) {
+                                filter: grayscale(100%);
+                            }
+                        }
+                    }
+
+                }
+            }
+
         }
         
 
@@ -123,17 +152,21 @@ body {
             text-decoration: none;
 
             img {
-                //filter: grayscale(100%);
-                //transition: filter .6s ease-in-out;
+                transition: var(--animationCard);
             }
 
             &:hover, &:focus, &:active {
                 img {
-                    //filter: grayscale(0%);
-                    ///transition: filter .6s ease-in-out;
+                    transform: scale(1.2);
+                    transition: var(--animationCard);
+
+                    @media (prefers-reduced-motion: reduce) {
+                        transform: scale(1);
+                    }
                 }
             }
         }
+
 
         &-name {
             margin: calc-em(10px, 14px) 0 0 0; 
