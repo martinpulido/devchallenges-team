@@ -11,11 +11,23 @@ $mqDesktop: 1440px;
     --black: hsla(0, 0%, 0%, 1);
     --gray1: hsla(0, 0%, 98%, 1);
     --gray2: hsla(0, 0%, 66%, 1);
+    /* Gaps */
+    --maxWidthContainer: 890px;
+    --gapItemsMobile: 28px;
+    --gapItemsDestkop: 66;
 
+    /* Animations */
     --animationCard: .6s ease-in-out;
 }
 
 * { box-sizing: border-box; }
+.hide-a11y {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    clip: rect(0, 0, 0, 0);
+}
 
 body {
     margin: 0;
@@ -31,17 +43,26 @@ body {
 .container {
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
     min-height: calc(100vh - #{calc-em(24px)} - #{calc-em(24px)});
-
-    @media (min-width: $mqDesktop){
-        margin: 0 auto;
-        max-width: calc-em(1286px);
-        text-align: left;
-    }
+    max-width: calc-em(890px);
+    text-align: left;
 }
 
 .header {
     margin-left: calc-em(-2px);
+
+    @media (min-width: $mqDesktop){
+        display: flex;
+
+        > * {
+            flex-basis: 50%;
+        }
+
+        &-content {
+            padding-left: calc-em(50px);
+        }
+    }
 }
 
     .page-title {
@@ -68,6 +89,11 @@ body {
     .page-description {
         font-size: calc-em(14px);
         line-height: 1.5;
+
+        
+        @media (min-width: $mqDesktop){
+            font-size: calc-em(18px);
+        }
     }
 
 .main-content {
@@ -91,28 +117,52 @@ body {
         &-team {
             display: flex;
             flex-wrap: wrap;
+            justify-content: space-between;
             margin: calc-em(44px) calc-em(7px) calc-em(134px);
 
+            @media (min-width: $mqDesktop){
+                margin: calc-em(96px) 0 0;
+            }
+
             > * {
-                width: calc(50% - 10px);
+                width: calc(50% - (var(--gapItemsMobile) / 2));
 
                 &:nth-child(odd) {
-                    margin-right: 10px;
                     margin-bottom: calc-em(50px);
+
+                    @media (min-width: $mqDesktop){
+                        margin-bottom: 0;
+                    }
                 }
 
                 &:nth-child(even) {
                     margin-top: calc-em(50px);
-                    margin-left: 10px;
+
+                    @media (min-width: $mqDesktop){
+                        margin-top: 0;
+                    }
                 }
+
+                @media (min-width: $mqDesktop){
+                    width: calc(33.3333% - 3.707%);
+
+                    &:nth-child(2n+1){
+                        margin-bottom: calc-em(132px);
+                    }
+
+                    &:nth-child(3n+2){
+                        margin-top: calc-em(132px);
+                    }
+                }
+
+
+
             }
 
             &:hover {
                 img {
                     filter: grayscale(100%);
                     transition: all + var(--animationCard);
-
-                    
                 }
                 
                 .card-member {
