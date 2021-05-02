@@ -33,7 +33,7 @@
 
 ## Overview
 
-![screenshot](https://raw.githubusercontent.com/martinpulido/devchallenges-404/master/screenshot.png)
+![screenshot](https://raw.githubusercontent.com/martinpulido/devchallenges-team/dev/screenshot.png)
 
 
 ### Built With
