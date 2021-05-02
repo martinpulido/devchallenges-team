@@ -124,10 +124,10 @@ body {
                 margin: calc-em(96px) 0 0;
             }
 
-            > * {
+            > .card-member {
                 width: calc(50% - (var(--gapItemsMobile) / 2));
 
-                &:nth-child(odd) {
+                &:nth-of-type(odd) {
                     margin-bottom: calc-em(50px);
 
                     @media (min-width: $mqDesktop){
@@ -135,7 +135,7 @@ body {
                     }
                 }
 
-                &:nth-child(even) {
+                &:nth-of-type(even) {
                     margin-top: calc-em(50px);
 
                     @media (min-width: $mqDesktop){
@@ -146,11 +146,11 @@ body {
                 @media (min-width: $mqDesktop){
                     width: calc(33.3333% - 3.707%);
 
-                    &:nth-child(2n+1){
+                    &:nth-of-type(2n+1){
                         margin-bottom: calc-em(132px);
                     }
 
-                    &:nth-child(3n+2){
+                    &:nth-of-type(3n+2){
                         margin-top: calc-em(132px);
                     }
                 }
